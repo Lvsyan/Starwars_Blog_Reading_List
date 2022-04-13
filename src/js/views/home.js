@@ -8,25 +8,28 @@ export const Home = () => {
 	const {store, actions} = useContext(Context);
 
 	useEffect(()=>{
-		actions.getCharacters();
+		//actions.getCharacters();
 	}, [])
 	
 	return (
 		<div>
 			<h1>Characters</h1>
 			<div className="row">
-			{store.characters.map((character)=>{
-				return <div key={character} className="card" style={{width: "18rem"}}>
-								<img src="..." className="card-img-top" alt="..."/>
+			{store.characters.length > 0 ? store.characters.map((character)=>{
+				return <div key={character.uid} className="card" style={{width: "18rem"}}>
+								<img src={"https://starwars-visualguide.com/assets/img/characters/" + character.uid + ".jpg"} className="card-img-top" alt="..."/>
 								<div className="card-body">
-								<h5 className="card-title">{character.name}</h5>
-								<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-								<Link to={"/single" + character.uid}>
-									<a href="#" className="btn btn-primary">More info</a>
+								<h5 className="card-title">{character.properties.name}</h5>
+								<p className="card-text">{character.description}</p>
+								<p className="card-text">{character.properties.hair_color}</p>
+								<p className="card-text">{character.properties.skin_color}</p>
+								<p className="card-text">{character.properties.eye_color}</p>
+								<Link to={"/single/" + character.uid}>
+									<button className="btn btn-primary">More info</button>
 								</Link>
 							</div>
 						</div>
-			})}
+			}) : <h1>Loading</h1>}
 			</div>
 		</div>
 	)
