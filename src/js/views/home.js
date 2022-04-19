@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 import "../../styles/home.css";
 import {Link} from "react-router-dom";
 import {Context} from "../store/appContext";
@@ -6,9 +6,16 @@ import {Context} from "../store/appContext";
 export const Home = () => {
 
 	const {store, actions} = useContext(Context);
+
+	useEffect(()=>{
+		// actions.getCharacters();
+		// actions.getPlanets();
+		// actions.getVehicles();
+	}, [])
 	
 	return (
 		<div>
+			{/* Characters */}
 			<div className="container">
 				<h1>Characters</h1>
 				<div className="d-flex overflow-auto">
@@ -32,7 +39,7 @@ export const Home = () => {
 													</Link>
 													<button className={"ms-5 " + changeColor} onClick={()=>{
 														actions.conteo(character.properties.name)
-													}}><i class="fas fa-heart"></i></button>
+													}}><i className="fas fa-heart"></i></button>
 												</div>
 											</div>
 										</div>
@@ -40,6 +47,9 @@ export const Home = () => {
 						}) : <h1>Loading</h1>}
 				</div>
 			</div>
+
+			{/* Characters */}
+
 		</div>
 	)
 };
