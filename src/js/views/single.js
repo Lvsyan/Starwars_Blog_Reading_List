@@ -19,9 +19,15 @@ export const Single = props => {
 				<img className="col-3" src= {"https://starwars-visualguide.com/assets/img/characters/" + store.info.uid + ".jpg"}></img>
 				<div className="col-6">
 					<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.</p>
-					<p className="card-text">{store.info.properties.hair_color}</p>
-					<p className="card-text">{store.info.properties.skin_color}</p>
-					<p className="card-text">{store.info.properties.eye_color}</p>
+				</div>
+				<hr className="my-4 text-danger"></hr>
+				<div className="text-danger text-center">
+						<p className="card-text">{store.info.properties.name}</p>
+						<p className="card-text">{store.info.properties.birth_year}</p>
+						<p className="card-text">{store.info.properties.gender}</p>
+						<p className="card-text">{store.info.properties.height}</p>
+						<p className="card-text">{store.info.properties.skin_color}</p>
+						<p className="card-text">{store.info.properties.eye_color}</p>
 				</div>
 			</div> : <h1 className="text-center">Loading</h1>}
 			
