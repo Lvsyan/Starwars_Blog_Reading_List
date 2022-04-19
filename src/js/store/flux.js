@@ -203,10 +203,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					"uid": "10",
 					"__v": 0
 				}
-			]
+			],
+			fav: [],
 		},
 
 		actions: {
+			conteo: (incrementar) => {
+				const fav = getStore().fav;
+				if(!fav.includes(incrementar)){
+					setStore({fav: [...getStore().fav, incrementar]});
+				}else{
+					setStore({fav: fav.filter((e)=>e !== incrementar)});
+				}	
+			},
+			
 			getCharacters: async() => {
 				const response = await fetch("https://www.swapi.tech/api/people");
 				const data = await response.json()
