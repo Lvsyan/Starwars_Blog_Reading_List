@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = (props) => {
+export const Planets = (props) => {
 
     const { store, actions } = useContext(Context);
 	const params = useParams();
@@ -12,13 +12,12 @@ export const Single = (props) => {
 		actions.getOnePlanet(params.theid);
 	}, [])
 
-
     return (
 		<div className="container d-flex flex-column justify-content-center">
 			{store.info.uid ? <div className="row">
 				<h1 className="display-4 text-center">{store.info.properties.name}</h1>
 				<hr className="my-4" />
-				<img className="col-3" src= {"https://starwars-visualguide.com/assets/img/characters/" + store.info.uid + ".jpg"}></img>
+				<img className="col-3" src= {"https://starwars-visualguide.com/assets/img/planets/" + store.info.uid + ".jpg"}></img>
 				<div className="col-6">
 					<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.</p>
 				</div>
@@ -30,24 +29,24 @@ export const Single = (props) => {
 							<p className="card-text">{store.info.properties.name}</p>
 						</div>
 						<div>
-							<p>Birth Year</p>
-							<p className="card-text">{store.info.properties.birth_year}</p>
+							<p>Diameter</p>
+							<p className="card-text">{store.info.properties.diameter}</p>
 						</div>
 						<div>
-							<p>Gender</p>
-							<p className="card-text">{store.info.properties.gender}</p>
+							<p>Gravity</p>
+							<p className="card-text">{store.info.properties.gravity}</p>
 						</div>
 						<div>
-							<p>Heigth</p>
-							<p className="card-text">{store.info.properties.height}</p>
+							<p>Population</p>
+							<p className="card-text">{store.info.properties.population}</p>
 						</div>
 						<div>
-							<p>Skin Color</p>
-							<p className="card-text">{store.info.properties.skin_color}</p>
+							<p>Climate</p>
+							<p className="card-text">{store.info.properties.climate}</p>
 						</div>
 						<div>
-							<p>Eye Color</p>
-							<p className="card-text">{store.info.properties.eye_color}</p>
+							<p>Terrain</p>
+							<p className="card-text">{store.info.properties.terrain}</p>
 						</div>
 					</div>
 				</div>
@@ -64,6 +63,6 @@ export const Single = (props) => {
 };
 
 
-Planet.propTypes = {
+Planets.propTypes = {
 	match: PropTypes.object
 };
